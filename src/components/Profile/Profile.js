@@ -13,20 +13,26 @@ function Profile() {
                     </div>
                 </div>
                 <div className="">
-                    <a target='_blank' href="./resume.pdf" className="bg-green-600 text-white p-2">Resume</a>
+                    <a target='_blank' href="./Resume.pdf" className="bg-green-600 text-white p-2">Resume</a>
                 </div>
             </div>
-            <div className="flex justify-around items-center">
-                <ul className='text-zinc-500 p-10'>
-                    <li><a target='_blank' href="https://www.linkedin.com/in/mazharul-alam-728444201/">Linkedin</a></li>
-                    <li><a target='_blank' href="https://github.com/sany655">Github</a></li>
-                    <li>mazharulalam26@gmail.com</li>
-                    <li>+8801876626011</li>
-                </ul>
-                <ul className='text-zinc-500 p-10'>
-                    <li>SSC - 2019 with GPA - 3.5</li>
-                    <li>HSC - 2020/21 with GPA - coming soon</li>
-                </ul>
+            <div className="flex flex-col lg:flex-row lg:justify-around items-right">
+                <div className="p-10">
+                    <h2 className="text-xl">Links</h2>
+                    <ul className='text-zinc-500'>
+                        <li><a target='_blank' href="https://www.linkedin.com/in/mazharul-alam-728444201/">Linkedin</a></li>
+                        <li><a target='_blank' href="https://github.com/sany655">Github</a></li>
+                        <li>mazharulalam26@gmail.com</li>
+                        <li>+8801876626011</li>
+                    </ul>
+                </div>
+                <div className="p-10">
+                    <h2 className="text-xl">Education</h2>
+                    <ul className='text-zinc-500'>
+                        <li>SSC - 2019 with GPA - 3.5</li>
+                        <li>HSC - 2020/21 with GPA - coming soon</li>
+                    </ul>
+                </div>
             </div>
         </div>
     )
