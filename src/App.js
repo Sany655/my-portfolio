@@ -14,15 +14,15 @@ import Projects from "./components/Projects/Projects";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} >
           <Route path="/" element={<Profile />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
         </Route>
-        <Route path="expenses" element={<Expenses />} />
-        <Route path="invoices" element={<Invoices />} />
+        {/* <Route path="expenses" element={<Expenses />} />
+        <Route path="invoices" element={<Invoices />} /> */}
         <Route
           path="*"
           element={
