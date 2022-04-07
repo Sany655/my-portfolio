@@ -118,5 +118,28 @@
             "You can cancel your orders too"
         ],
         "git":"https://github.com/Sany655/ema-john-react"
+    },
+    {
+        "id": 7,
+        "name": "Calling Dudes",
+        "image": [
+            "./images/calling-dudes/1.png",
+            "./images/calling-dudes/2.png",
+            "./images/calling-dudes/3.png",
+            "./images/calling-dudes/4.png",
+            "./images/calling-dudes/5.png"
+        ],
+        "description": "a responsive chat app version 1",
+        "link": "https://calling-dudes.web.app/",
+        "details": [
+            "Register as an user",
+            "Login with your credentials",
+            "add a people as friend",
+            "send hi to your friends",
+            "it will show green if your friend online",
+            "after logout or closing tab/windows instantly chage activity",
+            "other features will coming soon"
+        ],
+        "git":"https://github.com/Sany655/chat"
     }
 ]
