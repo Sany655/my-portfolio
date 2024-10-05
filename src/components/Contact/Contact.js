@@ -7,11 +7,11 @@ function Contact() {
     return (
         <div className='flex justify-center items-center h-screen'>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="text-2xl text-center">Send Email</h1>
+                <h1 className="text-2xl text-center">Send Message</h1>
                 {
                     state.succeeded ? (
                         <div className="bg-green-500 text-center text-white text-md p-2 rounded">
-                            <p>Email has sent successfully!</p>
+                            <p>Message has sent successfully!</p>
                         </div>
                     ) : ''
                 }
