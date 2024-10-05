@@ -5,11 +5,11 @@ function Profile() {
         <div className=''>
             <div className="bg-slate-700 text-white flex flex-col md:flex-row md:justify-between md:items-end p-10 md:px-20">
                 <div className="flex items-center md:items-end flex-col md:flex-row">
-                    <img src="./images/me.webp" className='rounded-full' alt="" />
+                    {/* <img src="./images/me.webp" className='rounded-full' alt="" /> */}
                     <div className="m-5">
                         <h1 className='text-2xl'>Mohammad Mazharul Alam</h1>
                         <p className='text-base text-zinc-500'>Undergraduate</p>
-                        <p className='text-sm text-zinc-400'>MERN Developer</p>
+                        <p className='text-sm text-zinc-400'>Developer</p>
                     </div>
                 </div>
                 <div className="mx-5 md:m-0">

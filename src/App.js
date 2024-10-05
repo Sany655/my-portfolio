@@ -9,12 +9,10 @@ import Profile from "./components/Profile/Profile";
 import Projects from "./components/Projects/Projects";
 import ProjectDetail from "./components/ProjectDetail/ProjectDetail";
 import Blogs from "./components/Blogs/Blogs";
-import Header from "./components/Header/Header";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} >
           <Route path="/" element={<Profile />} />
