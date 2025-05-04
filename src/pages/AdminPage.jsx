@@ -17,6 +17,7 @@ export default function AdminPage() {
       <Route path="/*" element={
         <AuthGuard>
           <Header />
+          <div className="container mx-auto">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/about" element={<EditAbout />} />
@@ -26,6 +27,7 @@ export default function AdminPage() {
             <Route path="/messages" element={<Messages />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>
+          </div>
         </AuthGuard>
       } />
     </Routes>
@@ -35,7 +37,7 @@ export default function AdminPage() {
 function Header() {
   const { logout } = useAuth();
   return (
-    <header className="bg-green-500 flex justify-between items-center p-8">
+    <header className="bg-gray-500 flex justify-between items-center p-8">
       <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
       <nav className="flex space-x-4">
         <Link className="text-white" to="/admin/">Dashboard</Link>

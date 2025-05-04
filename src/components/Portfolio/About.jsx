@@ -33,49 +33,64 @@ export default function About() {
     fetchAbout();
   }, []);
 
-  if (!aboutData) return <div>Loading...</div>;
+  if (!aboutData) {
+    return (
+      <div className="text-center text-gray-500 animate-pulse my-24">
+        <div className="w-40 h-40 rounded-full bg-gray-200 shadow-lg mx-auto mb-6"></div>
+        <div className="h-6 w-48 bg-gray-200 rounded mx-auto mb-4"></div>
+        <div className="h-4 w-64 bg-gray-200 rounded mx-auto mb-2"></div>
+        <div className="h-4 w-56 bg-gray-200 rounded mx-auto mb-2"></div>
+        <div className="h-4 w-40 bg-gray-200 rounded mx-auto"></div>
+      </div>
+    )
+  }
 
   // Function to get the appropriate icon component
   const getSocialIcon = (name) => {
     const lowerName = name.toLowerCase();
     for (const [key, Icon] of Object.entries(socialIcons)) {
       if (lowerName.includes(key)) {
-        return <Icon className="w-5 h-5" />;
+        return <Icon className="w-6 h-6" />;
       }
     }
-    return <FaGlobe className="w-5 h-5" />; // Default icon
+    return <FaGlobe className="w-6 h-6" />; // Default icon
   };
 
   return (
-    <section id="about" className="py-12">
-      {/* <h2 className="text-3xl font-bold mb-6">About Me</h2> */}
-      <div className="flex flex-col md:flex-row gap-8 items-center">
-        <div className="w-full md:w-1/3 flex justify-center">
-          <img 
-            src={aboutData.imageUrl} 
-            alt={aboutData.name} 
-            className="rounded-full w-64 h-64 object-cover shadow-lg"
-          />
-        </div>
-        <div className="w-full md:w-2/3">
-          <h1 className="text-4xl font-bold mb-2">{aboutData.name}</h1>
-          <h2 className="text-xl text-gray-600 mb-4">{aboutData.title}</h2>
-          <p className="text-gray-700 mb-6 whitespace-pre-line">{aboutData.bio}</p>
-          <div className="flex gap-4">
-            {aboutData.socialLinks.map((link, index) => (
-              <a 
-                key={index} 
-                href={link.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                // className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                className="text-blue-500 hover:text-blue-700 transition-colors"
-                aria-label={link.name}
-                title={link.name}
-              >
-                {getSocialIcon(link.name)}
-              </a>
-            ))}
+    <section id="about" className="py-24 bg-gray-50">
+      <div className="container mx-auto px-6 lg:px-20">
+        <div className="flex flex-col gap-12 items-center text-center">
+          {aboutData.imageUrl && (
+            <div 
+              className="w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary animate-fade-in"
+              style={{ animationDuration: '1s' }}
+            >
+              <img 
+                src={aboutData.imageUrl} 
+                alt={aboutData.name} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          <div className="animate-slide-up" style={{ animationDuration: '1s' }}>
+            <h1 className="text-4xl font-extrabold text-primary mb-4">{aboutData.name}</h1>
+            <h2 className="text-2xl font-semibold text-secondary mb-6">{aboutData.title}</h2>
+            <p className="text-gray-700 leading-relaxed mb-8 whitespace-pre-line">{aboutData.bio}</p>
+            <div className="flex justify-center gap-6">
+              {aboutData.socialLinks.map((link, index) => (
+                <a 
+                  key={index} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-secondary transition-colors transform hover:scale-110"
+                  aria-label={link.name}
+                  title={link.name}
+                >
+                  {getSocialIcon(link.name)}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

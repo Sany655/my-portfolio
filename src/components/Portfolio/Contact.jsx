@@ -20,7 +20,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    
+
     try {
       await addDoc(collection(db, 'messages'), {
         ...formData,
@@ -42,13 +42,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-12 bg-white">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">Send Me a Message</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+    <section id="contact" className="py-16 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200">
+      <div className="container mx-auto px-6">
+        <h2 className="text-5xl font-extrabold text-center text-gray-700 mb-8">
+          Get in Touch
+        </h2>
+        <p className="text-lg text-center text-gray-700 mb-12">
+          Have a question or want to work together? Fill out the form below.
+        </p>
+        <form onSubmit={handleSubmit} className="bg-white/1 p-8 rounded-lg shadow-lg backdrop-blur-lg">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1">
                 Name
               </label>
               <input
@@ -58,12 +63,11 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:border-gray-700 transition"
               />
             </div>
-            
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
                 Email
               </label>
               <input
@@ -73,13 +77,12 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:border-gray-700 transition"
               />
             </div>
           </div>
-          
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <div className="mt-6">
+            <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1">
               Message
             </label>
             <textarea
@@ -89,17 +92,15 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-gray-700 focus:border-gray-700 transition"
             />
           </div>
-          
-          <div className="text-center">
+          <div className="text-center mt-8">
             <button
               type="submit"
               disabled={submitting}
-              className={`inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white ${
-                submitting ? 'bg-indigo-400' : 'bg-indigo-600 hover:bg-indigo-700'
-              } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors`}
+              className={`inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-md shadow-md text-white ${submitting ? 'bg-gray-400' : 'bg-gray-700 hover:bg-gray-800'
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 transition`}
             >
               <FaPaperPlane className="mr-2" />
               {submitting ? 'Sending...' : 'Send Message'}
