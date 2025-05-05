@@ -57,7 +57,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-24 bg-gray-50">
+    <section id="about" className="pb-24 md:py-24 bg-gray-50">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="flex flex-col gap-12 items-center text-center">
           {aboutData.imageUrl && (

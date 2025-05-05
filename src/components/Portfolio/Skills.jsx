@@ -61,7 +61,7 @@ export default function Skills() {
                   <div key={index} className="w-full">
                     <div className="flex justify-between mb-2">
                       <span className="text-sm font-medium text-black">{skill.name}</span>
-                      <span className="text-sm text-black">{skill.level}%</span>
+                      {/* <span className="text-sm text-black">{skill.level}%</span> */}
                     </div>
                     <div className="w-full bg-gray-300 rounded-full h-2">
                       <div

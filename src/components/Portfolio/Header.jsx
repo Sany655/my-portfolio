@@ -19,6 +19,7 @@ function Header() {
   return (
     <>
       <header
+      id='header'
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
           isScrolled
             ? 'bg-white/1 backdrop-blur-lg shadow-lg'
@@ -27,7 +28,7 @@ function Header() {
       >
         <div className="container mx-auto px-6">
           {!isScrolled && (
-            <div className="py-6 text-center text-black">
+            <div className="py-6 text-center text-black hidden md:block">
               <h1 className="text-5xl font-extrabold tracking-wide drop-shadow-lg">
                 Welcome to My Portfolio
               </h1>
@@ -64,6 +65,18 @@ function Header() {
                 </li>
                 <li>
                   <a
+                    href="#experience"
+                    className={`transition-colors duration-200 ${
+                      isScrolled
+                        ? 'text-gray-700 hover:text-gray-300'
+                        : 'text-white hover:text-gray-700'
+                    } font-semibold`}
+                  >
+                    Experience
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="#contact"
                     className={`transition-colors duration-200 ${
                       isScrolled
@@ -78,7 +91,7 @@ function Header() {
             </nav>
         </div>
       </header>
-      <div className="h-36"></div>
+      <div className="h-20 md:h-36"></div>
     </>
   );
 }

@@ -30,7 +30,7 @@ export default function Education() {
   if (loading) return <div className="text-center py-8">Loading education...</div>;
 
   return (
-    <section id="education" className="my-5 py-16 border border-gray-200 bg-gray-50">
+    <section id="education" className="mt-10 py-16 border border-gray-200 bg-gray-50">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
           Education & Certifications
