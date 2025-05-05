@@ -82,7 +82,6 @@ function Footer() {
             </a>
           ))}
         </div>
-        {/* <ResumeGenerator /> */}
       </div>
     )}
 

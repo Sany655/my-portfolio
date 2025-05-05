@@ -3,6 +3,8 @@ import { db } from '../../firebase/config';
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
 import { FaFileDownload } from 'react-icons/fa';
 import ResumeTemplate from './ResumeTemplate';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 export default function ResumeGenerator() {
   const [about, setAbout] = useState(null);
@@ -43,56 +45,34 @@ export default function ResumeGenerator() {
     fetchData();
   }, []);
 
-  // Simple HTML-to-PDF using browser print dialog
-  const handlePrint = () => {
-    const printContents = document.getElementById('resume-content').innerHTML;
-    const printWindow = window.open('', '', 'height=800,width=800');
-    printWindow.document.write('<html><head><title>Resume</title>');
-    printWindow.document.write('<link rel="stylesheet" href="/index.css" />'); // adjust if needed
-    printWindow.document.write('</head><body>');
-    printWindow.document.write(printContents);
-    printWindow.document.write('</body></html>');
-    printWindow.document.close();
-    printWindow.focus();
-    // printWindow.print();
-    printWindow.close();
-  };
-
   if (loading) return <div>Loading resume data...</div>;
   if (!about) return <div>No resume data found</div>;
 
+  const resumeData = { about, experience, education, skills, projects, contact };
+
+  const downloadPDF = () => {
+    const input = document.getElementById('resume'); // your component container
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'PNG', 10, 10);
+      pdf.save('resume.pdf');
+    });
+  };
+
   return (
     <div className="text-center my-8">
-      <button
-        onClick={handlePrint}
-        className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-      >
-        <FaFileDownload className="mr-2" />
-        Download Professional Resume (PDF)
+      <button onClick={downloadPDF}>
+        Download Resume
       </button>
-      <p className="text-sm text-gray-500 mt-2">
+
+      {/* <p className="text-sm text-gray-500 mt-2">
         Industry-standard layout | ATS-friendly format
-      </p>
-      <div id="resume-content" style={{ display: 'none' }}>
-        <ResumeTemplate
-          about={about}
-          experience={experience}
-          education={education}
-          skills={skills}
-          projects={projects}
-          contact={contact}
-        />
-      </div>
-      {/* Optionally, show the resume on the page as well */}
-      <div className="mt-8">
-        <ResumeTemplate
-          about={about}
-          experience={experience}
-          education={education}
-          skills={skills}
-          projects={projects}
-          contact={contact}
-        />
+      </p> */}
+
+      {/* Visible Resume Preview */}
+      <div id="resume" className="">
+        <ResumeTemplate {...resumeData} />
       </div>
     </div>
   );

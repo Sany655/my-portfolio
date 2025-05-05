@@ -2,15 +2,15 @@ import React from 'react';
 
 const styles = {
   page: {
-    maxWidth: 900,
-    margin: '40px auto',
+    // maxWidth: 900,
+    margin: '0 auto',
     background: '#fff',
     padding: '0 0 40px 0',
     fontFamily: "'Open Sans', Arial, sans-serif",
     color: '#222',
     borderRadius: 10,
     boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
-    minHeight: '1200px',
+    // minHeight: '1200px',
     display: 'flex',
     flexDirection: 'column'
   },
