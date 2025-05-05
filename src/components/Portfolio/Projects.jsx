@@ -134,14 +134,14 @@ export default function Projects() {
         style={{ cursor: 'grab', userSelect: 'none' }}
       >
         <div
-          className="flex gap-4 sm:gap-6 justify-center items-center transition-all duration-300 container mx-auto px-4 pb-16 sm:pb-20"
+          className="flex gap-4 sm:gap-6 justify-center items-center transition-all duration-300 container mx-auto px-4 py-10"
         >
           {visibleProjects.map((project, idx) => (
             <div
               key={project.id}
               className={`bg-gradient-to-tl from-gray-400 to-gray-200 text-black rounded-lg overflow-hidden shadow-md transition-transform duration-500 group flex flex-col h-full
                 ${idx === middleIndex
-                  ? 'scale-[1.15] z-10 ring-2 ring-gray-500'
+                  ? 'scale-[1.15] z-10 ring-2 ring-gray-500 my-24'
                   : 'scale-90 opacity-70 z-0'
                 }
               `}

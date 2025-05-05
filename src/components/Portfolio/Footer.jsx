@@ -6,6 +6,7 @@ import {
   FaGithub, FaLinkedin, FaGlobe 
 } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa6';
+import ResumeGenerator from '../Resume/ResumeGenerator';
 
 const socialIcons = {
   github: FaGithub,
@@ -81,6 +82,7 @@ function Footer() {
             </a>
           ))}
         </div>
+        {/* <ResumeGenerator /> */}
       </div>
     )}
 

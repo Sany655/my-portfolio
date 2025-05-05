@@ -5,7 +5,8 @@ import Skills from '../components/Portfolio/Skills.jsx';
 import Projects from '../components/Portfolio/Projects.jsx';
 import Contact from '../components/Portfolio/Contact.jsx';
 import Footer from '../components/Portfolio/Footer.jsx';
-import ContactInfo from '../components/Portfolio/ContactInfo.jsx';
+import Education from '../components/Portfolio/Education.jsx';
+import WorkExperience from '../components/Portfolio/WorkExperience.jsx';
 
 function PortfolioPage() {
   return (
@@ -14,8 +15,9 @@ function PortfolioPage() {
       <main className="pt-8">
         <About />
         <Skills />
+        <Education />
+        <WorkExperience />
         <Projects />
-        <ContactInfo />
         <Contact />
       </main>
       <Footer />

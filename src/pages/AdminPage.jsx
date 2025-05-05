@@ -9,6 +9,8 @@ import EditContact from '../components/Admin/EditContact';
 import { useAuth } from '../context/AuthContext';
 import Messages from '../components/Admin/Messages';
 import Login from '../components/Admin/Login';
+import EditEducation from '../components/Admin/EditEducation';
+import EditExperience from '../components/Admin/EditExperience';
 
 export default function AdminPage() {
   return (
@@ -25,6 +27,8 @@ export default function AdminPage() {
             <Route path="/projects" element={<EditProjects />} />
             <Route path="/contact" element={<EditContact />} />
             <Route path="/messages" element={<Messages />} />
+            <Route path="/education" element={<EditEducation />} />
+            <Route path="/experience" element={<EditExperience />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>
           </div>

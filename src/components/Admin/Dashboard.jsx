@@ -10,7 +10,9 @@ export default function Dashboard() {
   const [unreadMessages, setUnreadMessages] = useState(0);
   const [stats, setStats] = useState({
     projects: 0,
-    skills: 0
+    skills: 0,
+    education: 0,
+    experience: 0,
   });
   const [loading, setLoading] = useState(true);
 
@@ -31,9 +33,17 @@ export default function Dashboard() {
         // Count skill categories
         const skillsSnapshot = await getDocs(collection(db, 'skills'));
         
+        // Count skill categories
+        const educationSnapshot = await getDocs(collection(db,'education'));
+        
+        // Count skill categories
+        const experienceSnapshot = await getDocs(collection(db,'experience'));
+        
         setStats({
           projects: projectsSnapshot.size,
-          skills: skillsSnapshot.size
+          skills: skillsSnapshot.size,
+          education:educationSnapshot.size,
+          experience:experienceSnapshot.size
         });
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
@@ -49,15 +59,6 @@ export default function Dashboard() {
 
   return (
     <div className="p-6">
-      {/* <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <button
-          onClick={logout}
-          className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-        >
-          Logout
-        </button>
-      </div> */}
       
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Welcome, {currentUser.displayName || 'Admin'}!</h2>
@@ -98,6 +99,28 @@ export default function Dashboard() {
             className="mt-4 inline-block text-indigo-600 hover:text-indigo-800"
           >
             Manage skills →
+          </Link>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-medium mb-2">Education & Cerification</h3>
+          <p className="text-3xl font-bold">{stats.education}</p>
+          <Link 
+            to="/admin/education" 
+            className="mt-4 inline-block text-indigo-600 hover:text-indigo-800"
+          >
+            Manage Education →
+          </Link>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-medium mb-2">Experience</h3>
+          <p className="text-3xl font-bold">{stats.experience}</p>
+          <Link 
+            to="/admin/experience" 
+            className="mt-4 inline-block text-indigo-600 hover:text-indigo-800"
+          >
+            Manage Experience →
           </Link>
         </div>
       </div>
