@@ -11,14 +11,14 @@ import Messages from '../components/Admin/Messages';
 import Login from '../components/Admin/Login';
 import EditEducation from '../components/Admin/EditEducation';
 import EditExperience from '../components/Admin/EditExperience';
-import ResumeTemplate from '../components/Resume/ResumeTemplate';
-import ResumeGenerator from '../components/Resume/ResumeGenerator';
+// import ResumeTemplate from '../components/Resume/ResumeTemplate';
+// import ResumeGenerator from '../components/Resume/ResumeGenerator';
 
 export default function AdminPage() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/resume" element={<ResumeGenerator />} />
+      {/* <Route path="/resume" element={<ResumeGenerator />} /> */}
       <Route path="/*" element={
         <AuthGuard>
           <Header />
